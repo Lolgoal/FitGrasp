@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitgrasp Website Using Tailwind CSS and Alpine JS</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <script src="static/alpine.min.js"></script>
+</head>
+
+
+<style>
+  body{
+  font-family: 'Krona One', sans-serif;
+  }
+</style>  
+<body>
+
+
+  <nav class="flex items-center justify-between flex-wrap px-10 py-4 fixed w-full z-10 top-0 bg-white" x-data="{ isOpen: false }" @keydown.escape="isOpen = false" :class="{ 'shadow-lg bg-gray-100' : isOpen , 'bg-white' : !isOpen}">
+     
+    <div class="flex items-center flex-shrink-0 text-black mr-6">
+      <a class="no-underline hover:text-black hover:no-underline" href="./index.html">
+        <span class="text-2xl sm:pl-12 pl-4"> 
+       FitGrasp
+    </span>
+      </a>
+    </div>
+
+    <!--Toggle button (hidden on large screens)-->
+    <button @click="isOpen = !isOpen" type="button" class="block lg:hidden px-2 text-white hover:text-black focus:outline-none focus:text-black" :class="{ 'transition transform-180': isOpen }">
+      <svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path x-show="isOpen" fill-rule="evenodd" clip-rule="evenodd" d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z" style="display: none;"></path>
+        <path x-show="!isOpen" fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
+      </svg>
+    </button>
+
+    <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden" :class="{ 'block shadow-3xl': isOpen, 'hidden': !isOpen }" @click.away="isOpen = false" x-show.transition="true">
+      <ul class="pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center">
+        <li class="mr-3">
+          <a class="inline-block py-2 px-4 text-black no-underline" href="blogindex.html" @click="isOpen = false">Fitness Mantras
+          </a>
+        </li>
+        <li class="mr-3">
+          <a class="inline-block text-gray-800 no-underline hover:text-gray-900 hover:text-underline py-2 px-4" href="./blogindex.html" @click="isOpen = false">Diet Plans
+          </a>
+        </li>
+        <li class="mr-3">
+          <a class="inline-block text-gray-800 no-underline hover:text-gray-900 hover:text-underline py-2 px-4" href="./blogindex.html" @click="isOpen = false">Resources 
+          </a>
+        </li>
+    
+      </ul>
+    </div>
+  </nav>
+
+
+
+    <section class="text-gray-700 body-font bg-gray-100">
+
+<article class="py-12 px-4 mt-12">
+  <h1 class="text-4xl text-center mb-4 font-semibold font-heading font-semibold">Lorem ipsum dolor sit.</h1>
+  <p class="text-center">
+    <span>October 22, by</span>
+    <a class="ml-1 text-blue-600 hover:underline" href="#">Michael Scott</a>
+  </p>
+  
+  <div class="max-w-3xl mx-auto">
+    <p class="mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam maxime aspernatur alias distinctio debitis a, consequuntur iure. Enim qui eveniet quia deleniti tempora atque magnam obcaecati dolores maiores libero omnis ratione, vero accusamus distinctio suscipit quis! Distinctio eaque sint consectetur reiciendis, error nemo quaerat ratione?.</p>
+    <p class="mb-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id fugit porro ducimus ab aspernatur dignissimos quibusdam dolorum expedita, omnis aliquid sit molestias repudiandae voluptatum ipsum minus suscipit quaerat adipisci esse ad eveniet officia ratione?</p>
+    <ul class="mb-4 list-inside list-disc">
+      <li>Lorem ipsum dolor sit.</li>
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Lorem ipsum dolor sit amet consectetur.</li>
+      <li>Long lasting whiteness</li>
+    </ul>
+    <img src="https://images.unsplash.com/photo-1587614387466-0a72ca909e16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" class="w-full object-contain lg:rounded">
+    <p class="mb-10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et sunt numquam laboriosam delectus facere quia, nihil voluptas ducimus vel aperiam veniam, voluptate obcaecati repellat doloribus deserunt blanditiis aspernatur quae! Veniam, quisquam culpa. Pariatur sequi vel hic sed sit qui, laborum minima fugit? Nulla accusamus dolor animi, ipsa ullam doloribus temporibus pariatur vel? Modi ullam nihil repudiandae.</p>
+    <blockquote class="text-center mb-10">
+      <p class="text-lg font-semibold mb-2">"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quia iusto dolore veritatis. Harum qui velit quis laborum odio delectus repellat sequi, officiis atque incidunt! Quaerat asperiores suscipit veniam hic tempore laboriosam ex nostrum laborum explicabo id voluptas magnam, ipsum minima sit illo reprehenderit possimus nemo illum inventore necessitatibus quae corrupti. Minima enim doloremque sed voluptatum?""
+      </p>
+      <footer class="text-gray-400">Michael Scott</footer>
+    </blockquote>
+  </div>
+</article>
+      </section>
+
+
+
+      <footer class="text-gray-100 body-font bg-blue-800 mt-12">
+ 
+        <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row items-center text-center justify-center">© Fitness Coach
+       
+      
+      </div>
+    </footer>
+  
+    
+
+
+</body>
+
+</html>
